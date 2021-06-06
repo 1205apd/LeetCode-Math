@@ -1,0 +1,10 @@
+class Solution:
+    def checkPerfectNumber(self, num: int) -> bool:
+        if (num <= 3):
+            return False
+        divisors = set([1])
+        for n in range(2, ceil(math.sqrt(num)) + 1):
+            if (num % n == 0):
+                divisors.add(n)
+                divisors.add(num / n)
+        return sum(divisors) == num
